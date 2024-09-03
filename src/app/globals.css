@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -17,13 +17,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply text-inherit bg-white;
 }
 
 @layer utilities {
@@ -31,3 +25,101 @@ body {
     text-wrap: balance;
   }
 }
+
+.err {
+  text-align: center;
+  background-color: rgb(204, 9, 9);
+  padding: 0.5rem;
+  margin: auto;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.75rem;
+}
+
+/* .loader {
+  --r1: 154%;
+  --r2: 68.5%;
+  width: 6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(var(--r1) var(--r2) at top, white 79.5%, rgb(30,64,175) 80%),
+    radial-gradient(var(--r1) var(--r2) at bottom, rgb(30,64,175) 79.5%, white 80%),
+    radial-gradient(var(--r1) var(--r2) at top, white 79.5%, rgb(30,64,175) 80%),
+    #ccc;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%, 0% 0%, 100% 0%;
+  background-repeat: no-repeat;
+  animation: l9 4s infinite linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes l9 {
+  33% {
+    background-position: 0% 33%, 100% 33%, 200% 33%;
+  }
+  66% {
+    background-position: -100% 66%, 0% 66%, 100% 66%;
+  }
+  100% {
+    background-position: 0% 100%, 100% 100%, 200% 100%;
+  }
+} */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display:grid;
+  -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+  animation: l26 1s infinite steps(12);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+}
+.loader,
+.loader:before,
+.loader:after{
+  background:
+    radial-gradient(closest-side at 50% 12.5%,
+     blue 96%,#0000) 50% 0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%,
+     blue 96%,#0000) 0 50%/80% 20% repeat-x;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {transform:rotate(1turn)}
+}
+
+/* Responsive loader adjustments */
+@media (max-width: 640px) {
+  .loader {
+    width: 4.5rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .loader {
+    width: 5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .loader {
+    width: 5rem;
+  }
+}
+
+
