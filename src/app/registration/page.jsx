@@ -6,6 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { FaSpinner } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Register() {
   const router = useRouter();
@@ -102,7 +103,8 @@ export default function Register() {
 
           <div className={style.google}>
           <button onClick={() => {setGoogleloader(true); signIn("google") }}className={style.googlebtn} disabled={googleloader}>
-            <img src="/google-logo-clipart-transparent-removebg-preview.png" alt="google" className={style.google_logo} />
+            <Image src={"/google-logo-clipart-transparent-removebg-preview.png"} width={100} height={100} alt={google}/>
+           
             <span>{googleloader ? (<div className="flex justify-center items-center">
               <FaSpinner className="animate-spin text-blue-600 h-8 w-8 text-4xl" />
             </div>): "Sign in with Google"}</span>
