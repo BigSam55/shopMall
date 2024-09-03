@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FaSpinner } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Login() {
   const router = useRouter();
@@ -27,13 +28,13 @@ export default function Login() {
     }
   }, [err]);
 
-  useEffect(() => {
-    if (status === 'error') {
-      setErr('Failed to retrieve session information. Please try again.');
-    } else if (status === 'authenticated') {
-      router.replace('/home');
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === 'error') {
+  //     setErr('Failed to retrieve session information. Please try again.');
+  //   } else if (status === 'authenticated') {
+  //     router.replace('/home');
+  //   }
+  // }, [status]);
   
 
   const submitHandler = async (e) => {
@@ -107,7 +108,7 @@ export default function Login() {
         {err && (<p className='err' data-aos="zoom-out">{err}</p>)}
         <div className={style.google}>
           <button onClick={() => {setGoogleloader(true); signIn("google") }}className={style.googlebtn} disabled={googleloader}>
-            <img src="/google-logo-clipart-transparent-removebg-preview.png" alt="google" className={style.google_logo} />
+            <Image src={"/google-logo-clipart-transparent-removebg-preview.png"} alt={"google"} width={100} height={100} className={style.google_logo} />
             <span>{googleloader ? (<div className="flex justify-center items-center">
               <FaSpinner className="animate-spin text-blue-600 h-8 w-8 text-4xl" />
             </div>): "Sign in with Google"}</span>

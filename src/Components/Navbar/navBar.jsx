@@ -26,6 +26,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { CartContext } from "@/Components/CartContext/cart";
+import Image from "next/image";
 
 const navigation = {
   categories: [
@@ -247,13 +248,16 @@ export default function Navbar() {
                               className="group relative text-sm"
                             >
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                <img
+                                <Image
                                   src={item.imageSrc}
                                   alt={item.imageAlt}
+                                  width={100}
+                                  height={100}
+
                                   className="object-cover object-center"
                                 />
                               </div>
-                              <a
+                              <Link
                                 href={item.href}
                                 className="mt-6 block font-medium text-gray-900"
                               >
@@ -262,7 +266,7 @@ export default function Navbar() {
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </a>
+                              </Link>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
                               </p>
@@ -284,12 +288,12 @@ export default function Navbar() {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a
+                                  <Link
                                     href={item.href}
                                     className="-m-2 block p-2 text-gray-500"
                                   >
                                     {item.name}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -303,12 +307,12 @@ export default function Navbar() {
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a
+                      <Link
                         href={page.href}
                         className="-m-2 block p-2 font-medium text-blue-900"
                       >
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -340,17 +344,19 @@ export default function Navbar() {
                 )}
 
                 <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="#" className="-m-2 flex items-center p-2">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
+                  <Link href="#" className="-m-2 flex items-center p-2">
+                    <Image
+                      src={"https://tailwindui.com/img/flags/flag-canada.svg"}
+                      alt={flag}
+                      width={100}
+                      height={100}
                       className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-base font-medium text-blue-800">
                       CAD
                     </span>
                     <span className="sr-only">, change currency</span>
-                  </a>
+                  </Link>
                 </div>
               </DialogPanel>
             </TransitionChild>
@@ -443,7 +449,7 @@ export default function Navbar() {
                                               className="object-cover object-center"
                                             />
                                           </div>
-                                          <a
+                                          <Link
                                             href={item.href}
                                             className="mt-6 block font-medium text-black"
                                           >
@@ -452,7 +458,7 @@ export default function Navbar() {
                                               aria-hidden="true"
                                             />
                                             {item.name}
-                                          </a>
+                                          </Link>
                                           <p
                                             aria-hidden="true"
                                             className="mt-1"
@@ -481,12 +487,12 @@ export default function Navbar() {
                                                 key={item.name}
                                                 className="flex"
                                               >
-                                                <a
+                                                <Link
                                                   href={item.href}
                                                   className="hover:text-black"
                                                 >
                                                   {item.name}
-                                                </a>
+                                                </Link>
                                               </li>
                                             ))}
                                           </ul>
@@ -520,13 +526,13 @@ export default function Navbar() {
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-black hover:text-gray-500">
+                  <Link href="#" className="p-2 text-black hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon
                       className="h-6 w-6"
                       aria-hidden="true"
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Cart */}
