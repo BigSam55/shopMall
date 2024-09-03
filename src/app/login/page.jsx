@@ -146,7 +146,7 @@ export default function Login() {
               {loader ? "Loading..." : 'Sign in'}
             </button>
           </form>
-          <p className={style.tag}>Don't have an account?.. <Link href="/registration">Sign Up</Link></p>
+          <p className={style.tag}>Do not have an account?.. <Link href="/registration">Sign Up</Link></p>
           {loader && <div className="loader"></div>}
         </div>
       </div>
