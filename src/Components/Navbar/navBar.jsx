@@ -343,11 +343,11 @@ export default function Navbar() {
                   </div>
                 )}
 
-                {/* <div className="border-t border-gray-200 px-4 py-6">
+                <div className="border-t border-gray-200 px-4 py-6">
                   <Link href="#" className="-m-2 flex items-center p-2">
                     <Image
                       src={"https://tailwindui.com/img/flags/flag-canada.svg"}
-                      alt={flag}
+                      alt={"flag"}
                       width={100}
                       height={100}
                       className="block h-auto w-5 flex-shrink-0"
@@ -357,7 +357,7 @@ export default function Navbar() {
                     </span>
                     <span className="sr-only">, change currency</span>
                   </Link>
-                </div> */}
+                </div>
               </DialogPanel>
             </TransitionChild>
           </div>
